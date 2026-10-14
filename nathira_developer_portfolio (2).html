@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Developer portfolio of Nathira Begum S" />
+    <title>Nathira Begum S | Developer Portfolio</title>
+    <style>
+      :root {
+        --bg: #080e1b;
+        --panel: #111c2e;
+        --text: #edf4ff;
+        --muted: #a9b7cd;
+        --blue: #72aaff;
+        --cyan: #6ce4df;
+        --line: #25344b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 85% 5%, #17345a 0, transparent 28%),
+          var(--bg);
+        color: var(--text);
+        font:
+          16px/1.65 Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        width: min(1100px, calc(100% - 36px));
+        margin: auto;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: #080e1be8;
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-weight: 850;
+        letter-spacing: -0.04em;
+      }
+      .brand b {
+        color: var(--cyan);
+      }
+      .links {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .links a:hover,
+      .link {
+        color: var(--cyan);
+      }
+      .menu {
+        display: none;
+        background: var(--panel);
+        color: var(--text);
+        border: 1px solid var(--line);
+        padding: 8px 12px;
+        border-radius: 9px;
+      }
+      .hero {
+        padding: 92px 0 76px;
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .pill {
+        display: inline-flex;
+        gap: 9px;
+        align-items: center;
+        border: 1px solid #29445d;
+        background: #112337;
+        border-radius: 30px;
+        padding: 6px 13px;
+        color: var(--cyan);
+        font-size: 0.84rem;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--cyan);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--cyan);
+      }
+      h1 {
+        font-size: clamp(2.7rem, 6vw, 4.8rem);
+        letter-spacing: -0.065em;
+        line-height: 1.07;
+        margin: 22px 0;
+      }
+      h1 span {
+        background: linear-gradient(100deg, var(--blue), var(--cyan));
+        color: transparent;
+        background-clip: text;
+      }
+      .intro {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 650px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .btn {
+        padding: 11px 17px;
+        border-radius: 11px;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        display: inline-flex;
+      }
+      .primary {
+        background: linear-gradient(110deg, var(--blue), var(--cyan));
+        color: #07111d;
+        border: 0;
+      }
+      .card,
+      .skill,
+      .project,
+      .learn,
+      .contact {
+        background: #111c2edb;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 24px;
+      }
+      .profile {
+        box-shadow: 0 20px 55px #0004;
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar {
+        width: 76px;
+        height: 76px;
+        display: grid;
+        place-items: center;
+        border-radius: 22px;
+        background: linear-gradient(135deg, var(--blue), var(--cyan));
+        color: #07111d;
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-bottom: 18px;
+      }
+      .profile h2 {
+        margin: 0;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .stat {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+      }
+      .stat span {
+        color: var(--muted);
+      }
+      section {
+        padding: 62px 0;
+      }
+      .kicker {
+        color: var(--cyan);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+      .title {
+        font-size: clamp(1.9rem, 4vw, 2.7rem);
+        letter-spacing: -0.045em;
+        line-height: 1.2;
+        margin: 8px 0;
+      }
+      .sub {
+        color: var(--muted);
+        max-width: 720px;
+        margin-top: 0;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+      }
+      .panel p {
+        color: var(--muted);
+      }
+      .focus {
+        display: grid;
+        gap: 12px;
+        color: var(--muted);
+      }
+      .focus div:before {
+        content: "✓";
+        color: var(--cyan);
+        margin-right: 10px;
+      }
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .skill h3,
+      .project h3,
+      .learn h3 {
+        margin: 0 0 8px;
+      }
+      .skill p,
+      .project p,
+      .learn p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 15px;
+      }
+      .tag {
+        font-size: 0.78rem;
+        padding: 4px 8px;
+        border: 1px solid #2d4565;
+        border-radius: 7px;
+        background: #172943;
+        color: #dceaff;
+      }
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .project {
+        display: flex;
+        flex-direction: column;
+        min-height: 310px;
+        transition: 0.2s;
+      }
+      .project:hover {
+        transform: translateY(-4px);
+        border-color: #5e9bf0;
+      }
+      .icon {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        background: #1b3453;
+        border-radius: 13px;
+        font-size: 1.3rem;
+        margin-bottom: 17px;
+      }
+      .project .tags {
+        margin-bottom: 18px;
+      }
+      .project .link {
+        margin-top: auto;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .note {
+        font-size: 0.78rem !important;
+        color: #8294ae !important;
+        margin-top: 12px !important;
+      }
+      .learn-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 0.85fr;
+        gap: 25px;
+        padding: 30px;
+        background:
+          radial-gradient(circle at 100% 0, #1a3b4a 0, transparent 35%),
+          var(--panel);
+      }
+      .contact-list {
+        display: grid;
+        gap: 11px;
+        align-content: center;
+      }
+      .contact-row {
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .contact-row strong {
+        display: block;
+        color: var(--text);
+        font-size: 0.8rem;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.5s,
+          transform 0.5s;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 850px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 65px;
+        }
+        .profile {
+          max-width: 520px;
+        }
+        .skills {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .projects {
+          grid-template-columns: 1fr 1fr;
+        }
+        .grid2,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .menu {
+          display: block;
+        }
+        .links {
+          display: none;
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          padding: 20px;
+          background: #080e1b;
+          flex-direction: column;
+          border-bottom: 1px solid var(--line);
+        }
+        .links.open {
+          display: flex;
+        }
+        .hero {
+          padding: 50px 0 40px;
+          gap: 28px;
+        }
+        section {
+          padding: 45px 0;
+        }
+        .skills,
+        .projects,
+        .learn-grid {
+          grid-template-columns: 1fr;
+        }
+        .card,
+        .skill,
+        .project,
+        .learn,
+        .contact {
+          padding: 20px;
+        }
+        .foot {
+          flex-direction: column;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *:before,
+        *:after {
+          transition: none !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="#home">NATHIRA BEGUM<b>.</b></a
+        ><button class="menu" id="menu" aria-expanded="false">☰ Menu</button>
+        <div class="links" id="links">
+          <a href="#about">About</a><a href="#skills">Skills</a
+          ><a href="#projects">Projects</a><a href="#learning">Learning</a
+          ><a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero wrap" id="home">
+        <div>
+          <div class="pill"><i class="dot"></i> Developer portfolio</div>
+          <h1>
+            Hi, I'm <span>Nathira Begum</span>.<br />
+            I build for the web.
+          </h1>
+          <p class="intro">
+            Software developer with experience in Angular, JavaScript, Node.js,
+            and MySQL. I’m currently strengthening my skills in Python
+            full-stack development and learning through practical projects.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore projects ↗</a
+            ><a class="btn" href="#contact">Contact me</a>
+            <a
+              class="btn"
+              href="https://drive.google.com/file/d/1g-2OSqy_c9AKyequ2GtzY-lw0c9lJ34t/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume PDF ↗
+            </a>
+          </div>
+        </div>
+        <aside class="card profile">
+          <div class="avatar">NB</div>
+          <h2>Nathira Begum S</h2>
+          <p class="muted">Web Developer · Python Full-Stack Learner</p>
+          <div class="stat">
+            <span>Frontend</span><strong>Angular · JavaScript</strong>
+          </div>
+          <div class="stat"><span>Backend</span><strong>Node.js</strong></div>
+          <div class="stat"><span>Database</span><strong>MySQL</strong></div>
+          <div class="stat">
+            <span>Current focus</span><strong>Python full stack</strong>
+          </div>
+        </aside>
+      </section>
+      <section id="about">
+        <div class="wrap">
+          <div class="reveal">
+            <div class="kicker">About me</div>
+            <h2 class="title">Building useful, user-friendly applications.</h2>
+            <p class="sub">
+              I enjoy turning requirements into practical web experiences and
+              learning by building projects.
+            </p>
+          </div>
+          <div class="grid2">
+            <article class="card panel reveal">
+              <p>
+                I’m a developer with practical experience in
+                <strong>Angular, JavaScript, Node.js, and MySQL</strong>. My
+                work includes a construction-services website for Noor Builders
+                &amp; Associates, along with Python projects focused on color
+                detection and Bitcoin price prediction.
+              </p>
+              <p>
+                I’m currently learning Python full-stack development and looking
+                for opportunities where I can contribute, improve my
+                problem-solving skills, and grow as a software developer.
+              </p>
+            </article>
+            <article class="card reveal">
+              <h3>What I bring</h3>
+              <div class="focus">
+                <div>Frontend development and form handling</div>
+                <div>Backend fundamentals and API integration</div>
+                <div>Database queries and data handling</div>
+                <div>A learning mindset and practical approach</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="wrap">
+          <div class="reveal">
+            <div class="kicker">Technical toolkit</div>
+            <h2 class="title">Skills &amp; technologies</h2>
+            <p class="sub">
+              Technologies based on my experience and current learning. Only
+              list skills you can confidently discuss in an interview.
+            </p>
+          </div>
+          <div class="skills">
+            <article class="skill reveal">
+              <h3>Frontend</h3>
+              <p>Web interfaces and user input.</p>
+              <div class="tags">
+                <span class="tag">Angular</span
+                ><span class="tag">JavaScript</span><span class="tag">HTML</span
+                ><span class="tag">CSS</span>
+              </div>
+            </article>
+            <article class="skill reveal">
+              <h3>Backend</h3>
+              <p>Server-side logic and API concepts.</p>
+              <div class="tags">
+                <span class="tag">Node.js</span
+                ><span class="tag">Express.js</span
+                ><span class="tag">REST APIs</span>
+              </div>
+            </article>
+            <article class="skill reveal">
+              <h3>Databases</h3>
+              <p>Data storage and querying.</p>
+              <div class="tags">
+                <span class="tag">MySQL</span><span class="tag">SQL</span
+                ><span class="tag">MongoDB — learning</span>
+              </div>
+            </article>
+            <article class="skill reveal">
+              <h3>Python &amp; tools</h3>
+              <p>Expanding skills through projects.</p>
+              <div class="tags">
+                <span class="tag">Python — learning</span
+                ><span class="tag">Git</span><span class="tag">GitHub</span
+                ><span class="tag">VS Code</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        <div class="wrap">
+          <div class="reveal">
+            <div class="kicker">Selected work</div>
+            <h2 class="title">Projects</h2>
+            <p class="sub">
+              Add your repository links, live demos, screenshots, and exact
+              contributions before publishing.
+            </p>
+          </div>
+          <div class="projects">
+            <article class="project reveal">
+              <div class="icon">⌂</div>
+              <h3>Noor Builders &amp; Associates</h3>
+              <p>
+                A construction-services website with service information,
+                project details, quote/calculator features, and contact forms.
+              </p>
+              <div class="tags">
+                <span class="tag">Angular</span
+                ><span class="tag">JavaScript</span
+                ><span class="tag">HTML/CSS</span
+                ><span class="tag">API integration</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Nathira-begum/Noor-Builders-Website"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Noor Builders and Associates ↗
+              </a>
+              <p class="note">Replace with your live website or GitHub URL.</p>
+            </article>
+            <article class="project reveal">
+              <div class="icon">◉</div>
+              <h3>Color Detection System</h3>
+              <p>
+                A Python project designed to identify and display color names
+                from images.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span
+                ><span class="tag">Image processing</span
+                ><span class="tag">PyCharm</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Nathira-begum/Color-Detection-System"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Color-Detection-System ↗
+              </a>
+              <p class="note">Add your GitHub URL and a screenshot/demo.</p>
+            </article>
+            <article class="project reveal">
+              <div class="icon">↗</div>
+              <h3>Bitcoin Price Prediction</h3>
+              <p>
+                A machine-learning project using historical Bitcoin data to
+                explore and predict future price trends.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span
+                ><span class="tag">Machine learning</span
+                ><span class="tag">Jupyter Notebook</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Nathira-begum/Bitcoin-Price-Prediction"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bitcoin Price Prediction ↗
+              </a>
+              <p class="note">
+                Add your repository and model evaluation details.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="learning">
+        <div class="wrap">
+          <div class="reveal">
+            <div class="kicker">Growing every day</div>
+            <h2 class="title">Current learning focus</h2>
+            <p class="sub">
+              Building on my web development foundation while improving Python
+              and backend skills.
+            </p>
+          </div>
+          <div class="learn-grid">
+            <article class="learn reveal">
+              <h3>Python full-stack development</h3>
+              <p>
+                Practising Python fundamentals, backend concepts, database
+                integration, and connecting frontend experiences to backend
+                services.
+              </p>
+            </article>
+            <article class="learn reveal">
+              <h3>Interview preparation</h3>
+              <p>
+                Revising JavaScript, Node.js, SQL, API concepts, debugging, and
+                explaining project decisions clearly.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="wrap">
+          <div class="contact reveal">
+            <div>
+              <div class="kicker">Let's connect</div>
+              <h2 class="title">Open to the right opportunity.</h2>
+              <p class="muted">
+                I’m interested in suitable junior software developer, web
+                developer, and full-stack opportunities.
+              </p>
+              <a> Email me: nathirabegum734@gmail.com </a>
+
+              <p class="note">
+                Replace placeholder contact details before sharing this
+                portfolio.
+              </p>
+            </div>
+            <div class="contact-list">
+              <div class="contact-row">
+                <strong>Email</strong>nathirabegum734@gmail.com
+              </div>
+              <div class="contact-row">
+                <strong>LinkedIn</strong
+                ><a
+                  class="link"
+                  href="https://www.linkedin.com/in/nathira-begum-564332243/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >linkedIn↗</a
+                >
+              </div>
+              <div class="contact-row">
+                <strong>GitHub</strong
+                ><a
+                  class="link"
+                  href="https://github.com/Nathira-begum"
+                  target="_blank"
+                  rel="noreferrer"
+                  >GitHub ↗</a
+                >
+              </div>
+              <div class="contact-row">
+                <strong>Location</strong>Chennai, INDIA
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap foot">
+        <span
+          >© <span id="year"></span> Nathira Begum S · HTML, CSS &amp;
+          JavaScript</span
+        ><a class="link" href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+    <script>
+      const menu = document.getElementById("menu"),
+        links = document.getElementById("links");
+      menu.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        menu.setAttribute("aria-expanded", String(open));
+      });
+      links.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          links.classList.remove("open");
+          menu.setAttribute("aria-expanded", "false");
+        }),
+      );
+      document.getElementById("year").textContent = new Date().getFullYear();
+      const obs = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("show");
+              obs.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>
