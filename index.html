@@ -52,10 +52,12 @@
         border-bottom: 1px solid var(--line);
       }
       nav {
-        height: 72px;
+        min-height: 72px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 18px;
+        position: relative;
       }
       .brand {
         font-weight: 850;
@@ -337,11 +339,16 @@
         flex-wrap: wrap;
       }
       .reveal {
-        opacity: 0;
-        transform: translateY(12px);
+        opacity: 1;
+        transform: none;
         transition:
           opacity 0.5s,
           transform 0.5s;
+      }
+
+      .js-reveal .reveal {
+        opacity: 0;
+        transform: translateY(12px);
       }
       .reveal.show {
         opacity: 1;
@@ -373,13 +380,25 @@
         .links {
           display: none;
           position: absolute;
-          top: 72px;
-          left: 0;
-          right: 0;
+          top: 100%;
+          left: -18px;
+          right: -18px;
           padding: 20px;
           background: #080e1b;
           flex-direction: column;
+          gap: 16px;
           border-bottom: 1px solid var(--line);
+          box-shadow: 0 16px 24px #0004;
+          z-index: 10;
+        }
+
+        .brand {
+          font-size: 0.95rem;
+        }
+
+        .menu {
+          cursor: pointer;
+          font: inherit;
         }
         .links.open {
           display: flex;
@@ -425,12 +444,24 @@
   </head>
   <body>
     <header>
-      <nav class="wrap">
-  
+      <nav class="wrap" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Nathira Begum home">
+          NATHIRA <b>BEGUM</b>
+        </a>
+        <button
+          class="menu"
+          id="menu"
+          type="button"
+          aria-controls="links"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >☰ Menu</button>
         <div class="links" id="links">
-          <a href="#about">About</a><a href="#skills">Skills</a
-          ><a href="#projects">Projects</a><a href="#learning">Learning</a
-          ><a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#learning">Learning</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
@@ -729,30 +760,48 @@
       </div>
     </footer>
     <script>
-      const menu = document.getElementById("menu"),
-        links = document.getElementById("links");
-      menu.addEventListener("click", () => {
-        const open = links.classList.toggle("open");
-        menu.setAttribute("aria-expanded", String(open));
-      });
-      links.querySelectorAll("a").forEach((a) =>
-        a.addEventListener("click", () => {
-          links.classList.remove("open");
-          menu.setAttribute("aria-expanded", "false");
-        }),
-      );
-      document.getElementById("year").textContent = new Date().getFullYear();
-      const obs = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("show");
-              obs.unobserve(e.target);
-            }
-          }),
-        { threshold: 0.12 },
-      );
-      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+      const menu = document.getElementById("menu");
+      const links = document.getElementById("links");
+      const year = document.getElementById("year");
+
+      if (menu && links) {
+        menu.addEventListener("click", () => {
+          const isOpen = links.classList.toggle("open");
+          menu.setAttribute("aria-expanded", String(isOpen));
+          menu.textContent = isOpen ? "✕ Close" : "☰ Menu";
+        });
+
+        links.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            links.classList.remove("open");
+            menu.setAttribute("aria-expanded", "false");
+            menu.textContent = "☰ Menu";
+          });
+        });
+      }
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const revealElements = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.05 }
+        );
+        revealElements.forEach((element) => observer.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("show"));
+      }
     </script>
   </body>
 </html>
