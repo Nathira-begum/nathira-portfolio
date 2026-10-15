@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Developer portfolio of Nathira Begum S" />
     <title>Nathira Begum S | Code. Create. Innovate.</title>
     <style>
@@ -15,12 +15,13 @@
         --cyan: #6ce4df;
         --line: #25344b;
       }
+
       * {
         box-sizing: border-box;
       }
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 80px;
+        scroll-padding-top: 84px;
       }
       body {
         margin: 0;
@@ -41,18 +42,19 @@
       }
       .wrap {
         width: min(1100px, calc(100% - 36px));
-        margin: auto;
+        margin-inline: auto;
       }
+
       header {
         position: sticky;
         top: 0;
-        z-index: 5;
+        z-index: 20;
         background: #080e1be8;
         backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--line);
       }
       nav {
-        min-height: 72px;
+        min-height: 68px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -62,12 +64,14 @@
       .brand {
         font-weight: 850;
         letter-spacing: -0.04em;
+        white-space: nowrap;
       }
       .brand b {
         color: var(--cyan);
       }
       .links {
         display: flex;
+        align-items: center;
         gap: 24px;
         color: var(--muted);
         font-size: 0.92rem;
@@ -83,11 +87,17 @@
         border: 1px solid var(--line);
         padding: 8px 12px;
         border-radius: 9px;
+        cursor: pointer;
+      }
+
+      section {
+        padding: 54px 0;
       }
       .hero {
-        padding: 92px 0 76px;
+        padding-top: 76px;
+        padding-bottom: 72px;
         display: grid;
-        grid-template-columns: 1.3fr 0.7fr;
+        grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
         gap: 48px;
         align-items: center;
       }
@@ -122,7 +132,7 @@
       }
       .intro {
         color: var(--muted);
-        font-size: 1.08rem;
+        font-size: 1.02rem;
         max-width: 650px;
       }
       .actions {
@@ -137,12 +147,18 @@
         border: 1px solid var(--line);
         font-weight: 700;
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn:hover {
+        border-color: var(--blue);
       }
       .primary {
         background: linear-gradient(110deg, var(--blue), var(--cyan));
         color: #07111d;
         border: 0;
       }
+
       .card,
       .skill,
       .project,
@@ -150,28 +166,28 @@
       .contact {
         background: #111c2edb;
         border: 1px solid var(--line);
-        border-radius: 20px;
+        border-radius: 18px;
         padding: 24px;
       }
       .profile {
         box-shadow: 0 20px 55px #0004;
-        position: relative;
-        overflow: hidden;
+        min-width: 0;
       }
       .avatar {
-        width: 76px;
-        height: 76px;
+        width: 64px;
+        height: 64px;
         display: grid;
         place-items: center;
-        border-radius: 22px;
+        border-radius: 18px;
         background: linear-gradient(135deg, var(--blue), var(--cyan));
         color: #07111d;
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         font-weight: 900;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
       }
       .profile h2 {
         margin: 0;
+        font-size: 1.35rem;
       }
       .muted {
         color: var(--muted);
@@ -179,17 +195,19 @@
       .stat {
         display: flex;
         justify-content: space-between;
-        gap: 10px;
-        padding: 12px 0;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 0;
         border-top: 1px solid var(--line);
-        font-size: 0.9rem;
+        font-size: 0.88rem;
       }
       .stat span {
         color: var(--muted);
       }
-      section {
-        padding: 62px 0;
+      .stat strong {
+        text-align: right;
       }
+
       .kicker {
         color: var(--cyan);
         text-transform: uppercase;
@@ -206,29 +224,34 @@
       .sub {
         color: var(--muted);
         max-width: 720px;
-        margin-top: 0;
+        margin: 0 0 20px;
       }
       .grid2 {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
         gap: 18px;
       }
       .panel p {
         color: var(--muted);
+        margin-top: 0;
+      }
+      .panel p:last-child {
+        margin-bottom: 0;
       }
       .focus {
         display: grid;
         gap: 12px;
         color: var(--muted);
       }
-      .focus div:before {
+      .focus div::before {
         content: "✓";
         color: var(--cyan);
         margin-right: 10px;
       }
+
       .skills {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 14px;
       }
       .skill h3,
@@ -257,30 +280,117 @@
         background: #172943;
         color: #dceaff;
       }
+
+      /* Experience: same width and alignment as the other sections */
+      #experience {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+      .experience-card {
+        width: 100%;
+        padding: 25px 28px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--cyan);
+        border-radius: 16px;
+        box-shadow: 0 12px 30px #0003;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .experience-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--blue);
+      }
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .experience-card h3 {
+        margin: 0 0 5px;
+        color: var(--text);
+        font-size: 1.25rem;
+      }
+      .experience-card h4 {
+        margin: 0;
+        color: var(--cyan);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .experience-date {
+        display: inline-block;
+        padding: 5px 10px;
+        background: #172943;
+        border: 1px solid #2d4565;
+        border-radius: 8px;
+        color: var(--blue);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+      .experience-card p {
+        margin: 10px 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      .experience-card .tech-heading {
+        margin-top: 18px;
+        color: var(--text);
+        font-size: 0.92rem;
+      }
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .tech-stack span {
+        padding: 5px 10px;
+        background: #172943;
+        border: 1px solid #2d4565;
+        border-radius: 7px;
+        color: #dceaff;
+        font-size: 0.82rem;
+      }
+      .tech-stack span:hover {
+        background: var(--cyan);
+        color: #080e1b;
+      }
+
+      /* Projects: remove the extra top padding that caused the visible gap */
+      #projects {
+        padding-top: 28px;
+      }
       .projects {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
       }
       .project {
         display: flex;
         flex-direction: column;
-        min-height: 310px;
-        transition: 0.2s;
+        min-width: 0;
+        min-height: 300px;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
       }
       .project:hover {
         transform: translateY(-4px);
         border-color: #5e9bf0;
       }
       .icon {
-        width: 46px;
-        height: 46px;
+        width: 42px;
+        height: 42px;
         display: grid;
         place-items: center;
         background: #1b3453;
-        border-radius: 13px;
-        font-size: 1.3rem;
-        margin-bottom: 17px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
       }
       .project .tags {
         margin-bottom: 18px;
@@ -295,14 +405,15 @@
         color: #8294ae !important;
         margin-top: 12px !important;
       }
+
       .learn-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
       }
       .contact {
         display: grid;
-        grid-template-columns: 1fr 0.85fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
         gap: 25px;
         padding: 30px;
         background:
@@ -338,35 +449,37 @@
         gap: 16px;
         flex-wrap: wrap;
       }
+
       .reveal {
         opacity: 1;
         transform: none;
-        transition:
-          opacity 0.5s,
-          transform 0.5s;
       }
-
       .js-reveal .reveal {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
+        transition:
+          opacity 0.45s ease,
+          transform 0.45s ease;
       }
-      .reveal.show {
+      .js-reveal .reveal.show {
         opacity: 1;
         transform: none;
       }
+
       @media (max-width: 850px) {
         .hero {
           grid-template-columns: 1fr;
-          padding-top: 65px;
+          padding-top: 60px;
+          gap: 30px;
         }
         .profile {
-          max-width: 520px;
+          max-width: 560px;
         }
         .skills {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .projects {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .grid2,
         .contact {
@@ -386,29 +499,27 @@
           padding: 20px;
           background: #080e1b;
           flex-direction: column;
+          align-items: flex-start;
           gap: 16px;
           border-bottom: 1px solid var(--line);
           box-shadow: 0 16px 24px #0004;
-          z-index: 10;
-        }
-
-        .brand {
-          font-size: 0.95rem;
-        }
-
-        .menu {
-          cursor: pointer;
-          font: inherit;
         }
         .links.open {
           display: flex;
         }
         .hero {
-          padding: 50px 0 40px;
-          gap: 28px;
+          padding: 48px 0 38px;
+          gap: 26px;
         }
         section {
-          padding: 45px 0;
+          padding: 42px 0;
+        }
+        #experience {
+          padding-top: 22px;
+          padding-bottom: 24px;
+        }
+        #projects {
+          padding-top: 22px;
         }
         .skills,
         .projects,
@@ -418,12 +529,24 @@
         .card,
         .skill,
         .project,
-        .learn,
+        .learn {
+          padding: 20px;
+        }
+        .experience-card {
+          padding: 20px;
+        }
+        .experience-header {
+          flex-direction: column;
+          gap: 10px;
+        }
         .contact {
           padding: 20px;
         }
         .foot {
           flex-direction: column;
+        }
+        h1 {
+          font-size: clamp(2.5rem, 12vw, 3.7rem);
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -431,11 +554,11 @@
           scroll-behavior: auto;
         }
         *,
-        *:before,
-        *:after {
+        *::before,
+        *::after {
           transition: none !important;
         }
-        .reveal {
+        .js-reveal .reveal {
           opacity: 1;
           transform: none;
         }
@@ -445,9 +568,9 @@
   <body>
     <header>
       <nav class="wrap" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="Nathira Begum home">
-          NATHIRA <b>BEGUM</b>
-        </a>
+        <a class="brand" href="#home" aria-label="Nathira Begum home"
+          >NATHIRA <b>BEGUM</b></a
+        >
         <button
           class="menu"
           id="menu"
@@ -455,40 +578,40 @@
           aria-controls="links"
           aria-expanded="false"
           aria-label="Toggle navigation menu"
-        >☰ Menu</button>
+        >
+          ☰ Menu
+        </button>
         <div class="links" id="links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#learning">Learning</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
+
     <main>
       <section class="hero wrap" id="home">
         <div>
-          <div class="pill"><i class="dot"></i>Code. Create. Innovate.</div>
-          <h1>
-            Hi, I'm <span>Nathira Begum</span>.<br />
-            I build for the web.
-          </h1>
+          <div class="pill"><i class="dot"></i> Code. Create. Innovate.</div>
+          <h1>Hi, I'm <span>Nathira Begum</span>.<br />I build for the web.</h1>
           <p class="intro">
             Software developer with experience in Angular, JavaScript, Node.js,
             and MySQL. I’m currently strengthening my skills in Python
             full-stack development and learning through practical projects.
           </p>
           <div class="actions">
-            <a class="btn primary" href="#projects">Explore projects ↗</a
-            ><a class="btn" href="#contact">Contact me</a>
+            <a class="btn primary" href="#projects">Explore projects ↗</a>
+            <a class="btn" href="#contact">Contact me</a>
             <a
               class="btn"
               href="https://drive.google.com/file/d/1g-2OSqy_c9AKyequ2GtzY-lw0c9lJ34t/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
+              >Resume PDF ↗</a
             >
-              Resume PDF ↗
-            </a>
           </div>
         </div>
         <aside class="card profile">
@@ -505,6 +628,7 @@
           </div>
         </aside>
       </section>
+
       <section id="about">
         <div class="wrap">
           <div class="reveal">
@@ -542,14 +666,14 @@
           </div>
         </div>
       </section>
+
       <section id="skills">
         <div class="wrap">
           <div class="reveal">
             <div class="kicker">Technical toolkit</div>
             <h2 class="title">Skills &amp; technologies</h2>
             <p class="sub">
-              Technologies based on my experience and current learning. Only
-              list skills you can confidently discuss in an interview.
+              Technologies based on my experience and current learning.
             </p>
           </div>
           <div class="skills">
@@ -591,14 +715,46 @@
           </div>
         </div>
       </section>
+
+      <section id="experience">
+        <div class="wrap">
+          <div class="reveal">
+            <div class="kicker">Career journey</div>
+            <h2 class="title">Previous Experience</h2>
+            <p class="sub">
+              My professional experience in web application development.
+            </p>
+          </div>
+          <article class="experience-card reveal">
+            <div class="experience-header">
+              <div>
+                <h3>Junior Consultant</h3>
+                <h4>Clear Code Labs</h4>
+              </div>
+              <span class="experience-date">Mar 2023 – May 2024</span>
+            </div>
+            <p>
+              Worked on web application development using JavaScript, Angular,
+              Node.js, Nest.js, and MySQL. Contributed to building web
+              applications and working with database operations.
+            </p>
+            <h4 class="tech-heading">Technologies Used</h4>
+            <div class="tech-stack">
+              <span>JavaScript</span><span>Angular</span><span>Node.js</span
+              ><span>Nest.js</span><span>MySQL</span><span>GitHub</span
+              ><span>GitLab</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="projects">
         <div class="wrap">
           <div class="reveal">
             <div class="kicker">Selected work</div>
             <h2 class="title">Projects</h2>
             <p class="sub">
-              Add your repository links, live demos, screenshots, and exact
-              contributions before publishing.
+              Explore some of my web development and Python projects.
             </p>
           </div>
           <div class="projects">
@@ -620,11 +776,35 @@
                 href="https://github.com/Nathira-begum/Noor-Builders-Website"
                 target="_blank"
                 rel="noopener noreferrer"
+                >Noor Builders and Associates ↗</a
               >
-                Noor Builders and Associates ↗
-              </a>
-              <p class="note">Replace with your live website or GitHub URL.</p>
             </article>
+
+            <article class="project reveal">
+              <div class="icon">↻</div>
+              <h3>Data Recovery System</h3>
+
+              <p>
+                Worked as a Backend Developer at Clear Code Labs on a data
+                recovery module, contributing to backend API development,
+                recovery operations, asynchronous message processing, and
+                recovery status tracking.
+              </p>
+
+              <div class="tags">
+                <span class="tag">NestJS</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Sequelize</span>
+                <span class="tag">AWS SQS</span>
+                <span class="tag">REST APIs</span>
+              </div>
+
+              <p class="project-role">
+                <strong>Role:</strong> Backend Developer<br />
+                <strong>Company:</strong> Clear Code Labs
+              </p>
+            </article>
+
             <article class="project reveal">
               <div class="icon">◉</div>
               <h3>Color Detection System</h3>
@@ -642,10 +822,8 @@
                 href="https://github.com/Nathira-begum/Color-Detection-System"
                 target="_blank"
                 rel="noopener noreferrer"
+                >Color Detection System ↗</a
               >
-                Color-Detection-System ↗
-              </a>
-              <p class="note">Add your GitHub URL and a screenshot/demo.</p>
             </article>
             <article class="project reveal">
               <div class="icon">↗</div>
@@ -664,45 +842,65 @@
                 href="https://github.com/Nathira-begum/Bitcoin-Price-Prediction"
                 target="_blank"
                 rel="noopener noreferrer"
+                >Bitcoin Price Prediction ↗</a
               >
-                Bitcoin Price Prediction ↗
-              </a>
-              <p class="note">
-                Add your repository and model evaluation details.
-              </p>
             </article>
           </div>
         </div>
       </section>
+
       <section id="learning">
         <div class="wrap">
           <div class="reveal">
             <div class="kicker">Growing every day</div>
-            <h2 class="title">Current learning focus</h2>
+            <h2 class="title">Current Learning Focus</h2>
             <p class="sub">
-              Building on my web development foundation while improving Python
-              and backend skills.
+              Completed Python training and currently expanding my full-stack
+              development skills with Node.js, MongoDB, and React.js.
             </p>
           </div>
+
           <div class="learn-grid">
             <article class="learn reveal">
-              <h3>Python full-stack development</h3>
+              <h3>Python Training</h3>
               <p>
-                Practising Python fundamentals, backend concepts, database
-                integration, and connecting frontend experiences to backend
-                services.
+                Completed Python training, covering programming fundamentals,
+                object-oriented programming, data structures, and core concepts.
               </p>
+              <span class="tag">Completed</span>
             </article>
+
             <article class="learn reveal">
-              <h3>Interview preparation</h3>
+              <h3>Node.js</h3>
               <p>
-                Revising JavaScript, Node.js, SQL, API concepts, debugging, and
-                explaining project decisions clearly.
+                Currently learning backend development, Express.js, REST APIs,
+                asynchronous programming, and server-side application
+                development.
               </p>
+              <span class="tag">In Progress</span>
+            </article>
+
+            <article class="learn reveal">
+              <h3>MongoDB</h3>
+              <p>
+                Learning NoSQL database concepts, CRUD operations, document
+                management, and database integration with backend applications.
+              </p>
+              <span class="tag">In Progress</span>
+            </article>
+
+            <article class="learn reveal">
+              <h3>React.js</h3>
+              <p>
+                Planning to learn component-based development, props, state,
+                hooks, and building interactive user interfaces.
+              </p>
+              <span class="tag">Pending</span>
             </article>
           </div>
         </div>
       </section>
+
       <section id="contact">
         <div class="wrap">
           <div class="contact reveal">
@@ -713,16 +911,16 @@
                 I’m interested in suitable junior software developer, web
                 developer, and full-stack opportunities.
               </p>
-              <a> Email me: nathirabegum734@gmail.com </a>
-
-              <p class="note">
-                Replace placeholder contact details before sharing this
-                portfolio.
-              </p>
+              <a class="btn primary" href="mailto:nathirabegum734@gmail.com"
+                >Email me ↗</a
+              >
             </div>
             <div class="contact-list">
               <div class="contact-row">
-                <strong>Email</strong>nathirabegum734@gmail.com
+                <strong>Email</strong
+                ><a href="mailto:nathirabegum734@gmail.com"
+                  >nathirabegum734@gmail.com</a
+                >
               </div>
               <div class="contact-row">
                 <strong>LinkedIn</strong
@@ -730,8 +928,8 @@
                   class="link"
                   href="https://www.linkedin.com/in/nathira-begum-564332243/"
                   target="_blank"
-                  rel="noreferrer"
-                  >linkedIn↗</a
+                  rel="noopener noreferrer"
+                  >LinkedIn profile ↗</a
                 >
               </div>
               <div class="contact-row">
@@ -740,29 +938,32 @@
                   class="link"
                   href="https://github.com/Nathira-begum"
                   target="_blank"
-                  rel="noreferrer"
-                  >GitHub ↗</a
+                  rel="noopener noreferrer"
+                  >GitHub profile ↗</a
                 >
               </div>
               <div class="contact-row">
-                <strong>Location</strong>Chennai, INDIA
+                <strong>Location</strong>Chennai, India
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
+
     <footer>
       <div class="wrap foot">
-        <span
-          >© <span id="year"></span> Nathira Begum S</span
-        ><a class="link" href="#home">Back to top ↑</a>
+        <span>© <span id="year"></span> Nathira Begum S</span>
+        <a class="link" href="#home">Back to top ↑</a>
       </div>
     </footer>
+
     <script>
       const menu = document.getElementById("menu");
       const links = document.getElementById("links");
       const year = document.getElementById("year");
+
+      if (year) year.textContent = new Date().getFullYear();
 
       if (menu && links) {
         menu.addEventListener("click", () => {
@@ -780,11 +981,6 @@
         });
       }
 
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-
-      const revealElements = document.querySelectorAll(".reveal");
       if ("IntersectionObserver" in window) {
         document.documentElement.classList.add("js-reveal");
         const observer = new IntersectionObserver(
@@ -796,11 +992,11 @@
               }
             });
           },
-          { threshold: 0.05 }
+          { threshold: 0.05 },
         );
-        revealElements.forEach((element) => observer.observe(element));
-      } else {
-        revealElements.forEach((element) => element.classList.add("show"));
+        document
+          .querySelectorAll(".reveal")
+          .forEach((element) => observer.observe(element));
       }
     </script>
   </body>
